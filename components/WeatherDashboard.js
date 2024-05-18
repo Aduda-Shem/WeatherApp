@@ -10,7 +10,7 @@ const fetcher = (...args) => fetch(...args).then(res => res.json());
 export default function WeatherDashboard({ location }) {
     const { data, error } = useSWR(
         location
-            ? `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${process.c8d70511f3dc3c04a1a9229492912b1e}&units=metric`
+            ? `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY}&units=metric`
             : null,
         fetcher
     );
